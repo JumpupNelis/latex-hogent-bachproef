@@ -49,17 +49,76 @@ Bestaande literatuur biedt echter beperkte kwantitatieve vergelijkingen tussen A
 \section{Methodologie}%
 \label{sec:methodologie}
 
-Hier beschrijf je hoe je van plan bent het onderzoek te voeren. Welke onderzoekstechniek ga je toepassen om elk van je onderzoeksvragen te beantwoorden? Gebruik je hiervoor literatuurstudie, interviews met belanghebbenden (bv.~voor requirements-analyse), experimenten, simulaties, vergelijkende studie, risico-analyse, PoC, \ldots?
+In dit onderzoek proberen we een antwoord te vinden op de centrale onderzoeksvraag en de deelvragen die erbij horen. Het hele traject duurt twaalf weken, van 2 maart tot 22 mei 2026. Doorheen het proces is het vooral belangrijk dat we goed bijhouden wat we allemaal doen.
 
-Valt je onderwerp onder één van de typische soorten bachelorproeven die besproken zijn in de lessen Research Methods (bv.\ vergelijkende studie of risico-analyse)? Zorg er dan ook voor dat we duidelijk de verschillende stappen terug vinden die we verwachten in dit soort onderzoek!
+\subsection{Fase 1: Afbakening (week 1--2)}
+\begin{description}
+  \item[Onderzoekstechnieken:] We zoeken info op in de literatuur en praten kort met QA-medewerkers om helder te krijgen wat we precies moeten meten.
+  \item[Doel:] Duidelijk krijgen wat we precies willen meten en onder welke omstandigheden, zodat we later alles makkelijk opnieuw kunnen testen.
+  \item[Deliverables:] 
+\end{description}
+\begin{itemize}
+  \item Een duidelijke bugdefinitie en indeling in types (crashes, softlocks, physics-problemen, performance-issues, \ldots).
+  \item Hoe we beslissen dat iets een aparte bug is en hoe we die bijhouden.
+  \item Randvoorwaarden zoals tijdslimieten, hardware, buildtype en welke scene/level we gebruiken.
+\end{itemize}
 
-Vermijd onderzoekstechnieken die geen objectieve, meetbare resultaten kunnen opleveren. Enquêtes, bijvoorbeeld, zijn voor een bachelorproef informatica meestal \textbf{niet geschikt}. De antwoorden zijn eerder meningen dan feiten en in de praktijk blijkt het ook bijzonder moeilijk om voldoende respondenten te vinden. Studenten die een enquête willen voeren, hebben meestal ook geen goede definitie van de populatie, waardoor ook niet kan aangetoond worden dat eventuele resultaten representatief zijn.
+\subsection{Fase 2: Testopstelling (week 3--4)}
+\begin{description}
+  \item[Onderzoekstechnieken:] Proof-of-concept opstelling + meetplan.
+  \item[Doel:] Alles automatisch laten registreren in een testomgeving, zodat vergelijken later gemakkelijk is.
+  \item[Deliverables:]
+\end{description}
+\begin{itemize}
+  \item Logging (CSV/JSON), crashdetectie en automatische timeouts.
+  \item Simpele test-orakels zoals assertions, loganalyse of performancegrenzen.
+  \item Baselines om mee te vergelijken:
+\begin{itemize}
+  \item een menselijk testprotocol met beperkt tijdsbudget;
+  \item een basic scripted bot voor regressietests.
+\end{itemize}
+\end{itemize}
 
-Uit dit onderdeel moet duidelijk naar voor komen dat je bachelorproef ook technisch voldoen\-de diepgang zal bevatten. Het zou niet kloppen als een bachelorproef informatica ook door bv.\ een student marketing zou kunnen uitgevoerd worden.
+\subsection{Fase 3: AI-agent PoC (week 5--7)}
+\begin{description}
+  \item[Onderzoekstechnieken:] Proof-of-concept ontwikkeling.
+  \item[Doel:] Een AI-agent opzetten die zelfstandig rondloopt in de game en alles onderzoekt, met focus op dekking of mensachtig gedrag.
+  \item[Deliverables:]
+\end{description}
+\begin{itemize}
+  \item Een agent die draait met alle belangrijke configuraties ingesteld.
+  \item Scripts waarmee we de experimenten eenvoudig opnieuw kunnen uitvoeren.
+\end{itemize}
 
-Je beschrijft ook al welke tools (hardware, software, diensten, \ldots) je denkt hiervoor te gebruiken of te ontwikkelen.
+\subsection{Fase 4: Vergelijkingsexperiment (week 8--9)}
+\begin{description}
+  \item[Onderzoekstechnieken:] Experiment opzetten + vergelijkende studie.
+  \item[Doel:] De mens, de scripted bot en de AI-agent op een eerlijke manier onder dezelfde omstandigheden testen.
+\end{description}
 
-Probeer ook een tijdschatting te maken. Hoe lang zal je met elke fase van je onderzoek bezig zijn en wat zijn de concrete \emph{deliverables} in elke fase?
+	extbf{Kwantitatieve meetwaarden}
+\begin{itemize}
+  \item \textbf{Bugdetectie:} aantal unieke bugs per tijdsbudget.
+  \item \textbf{Time-to-first-bug:} hoe snel de eerste bug gevonden wordt.
+  \item \textbf{Testdekking:} gekeken naar de bezochte plekken, checkpoints en unieke gebeurtenissen.
+  \item \textbf{False positives:} meldingen van problemen die je later niet kunt reproduceren.
+  \item \textbf{Praktische kost:} tijd om alles op te zetten, trainingstijd en compute-gebruik.
+\end{itemize}
+
+\subsection{Fase 5: Analyse en rapportering (week 10--12)}
+\begin{description}
+  \item[Onderzoekstechnieken:] Data-analyse + validiteitscheck.
+  \item[Doel:] De resultaten bekijken en er praktisch advies uit halen voor mid-size en indie-studio\textquoteright s.
+  \item[Deliverables:]
+\end{description}
+\begin{itemize}
+  \item Overzicht van de resultaten in tabellen en grafieken.
+  \item Validiteitsbespreking (bv. hoe goed ``coverage'' werkt als maat, hoe toepasbaar het is op andere games).
+  \item Conclusies en aanbevelingen over wanneer een AI-agent, een mens of een combinatie het best werkt.
+\end{itemize}
+
+\subsection{Tools}
+	extbf{Verwachte stack:} Voor tools gebruiken we Unity, ML-Agents, Python, CSV/JSON, Git en soms OpenCV voor visuele tests.
 
 %---------- Verwachte resultaten ----------------------------------------------
 \section{Verwacht resultaat, conclusie}%
