@@ -30,24 +30,20 @@ De probleemstelling die centraal staat in dit onderzoek is dat gametesten duur, 
 \section{Literatuurstudie}%
 \label{sec:literatuurstudie}
 
-Hier beschrijf je de \emph{state-of-the-art} rondom je gekozen onderzoeksdomein, d.w.z.\ een inleidende, doorlopende tekst over het onderzoeksdomein van je bachelorproef. Je steunt daarbij heel sterk op de professionele \emph{vakliteratuur}, en niet zozeer op populariserende teksten voor een breed publiek. Wat is de huidige stand van zaken in dit domein, en wat zijn nog eventuele open vragen (die misschien de aanleiding waren tot je onderzoeksvraag!)?
+\subsection{Traditionele game testing}
+Game testing verschilt fundamenteel van traditionele software testing door de niet-deterministische aard van gameplay en complexe interacties tussen systemen~\autocite{Politowski2021}. Handmatige testing blijft de dominante aanpak, hoewel dit gepaard gaat met hoge kosten en beperkte schaalbaarheid. Bestaande testing tools zijn vaak onvoldoende afgestemd op de specifieke behoeften van game development~\autocite{Politowski2022}. \textcite{Butt2023} tonen aan dat bepaalde categorieën bugs zoals collision detection en physics-gerelateerde problemen regelmatig gemist worden bij traditionele testmethoden. Geen universele oplossing bestaat; verschillende gamegenres vereisen specifieke testaanpakken~\autocite{Albaghajati2020}.
 
-Je mag de titel van deze sectie ook aanpassen (literatuurstudie, stand van zaken, enz.). Zijn er al gelijkaardige onderzoeken gevoerd? Wat concluderen ze? Wat is het verschil met jouw onderzoek?
+\subsection{Agent-based testing}
+\textcite{Shirzadehhajimahmood2021} demonstreren dat agent-based testing veelbelovend is voor het systematisch verkennen van game states en het detecteren van edge cases. \textcite{Ariyurek2019} vergelijken synthetic agents (coverage-georiënteerd) met human-like agents (usability-gericht), wat wijst op het potentieel van een hybride aanpak. De IV4XR framework van \textcite{Prasetya2022} toonde aan dat AI-agents significant sneller kunnen testen dan menselijke testers, maar moeite hebben met het detecteren van subtiele gameplay mechanics en usability issues.
 
-Verwijs bij elke introductie van een term of bewering over het domein naar de vakliteratuur, bijvoorbeeld~\autocite{Hykes2013}! Denk zeker goed na welke werken je refereert en waarom.
+\subsection{Deep reinforcement learning}
+Met deep reinforcement learning zijn agents in staat game environments zelfstandig te doorlopen zonder enige vorm van voorkennis. Vergelijkingen laten zien dat het Wuji-framework effectiever is in het opsporen van bugs dan traditionele scripted bots in online multiplayer games. In AAA-games stuiten implementaties echter op obstakels zoals uitgebreide trainingstijden en hoge eisen aan compute-resources. Reinforcement learning-agents hebben hun waarde bewezen voor zowel load testing als stress testing.
 
-Draag zorg voor correcte literatuurverwijzingen! Een bronvermelding hoort thuis \emph{binnen} de zin waar je je op die bron baseert, dus niet er buiten! Maak meteen een verwijzing als je gebruik maakt van een bron. Doe dit dus \emph{niet} aan het einde van een lange paragraaf. Baseer nooit teveel aansluitende tekst op eenzelfde bron.
+\subsection{Computer vision}
+Computer vision methods bieden een alternatieve benadering door visuele game states te analyseren voor black-box testing~\autocite{Paduraru2021}. De keuze van AI-techniek hangt sterk af van gametype, ontwikkelingsstadium en beschikbare resources~\autocite{Zarembo2019}. Semi-automatische frameworks die menselijke expertise combineren met AI-capabilities worden beschouwd als essentieel~\autocite{Nantes2008}.
 
-Als je informatie over bronnen verzamelt in JabRef, zorg er dan voor dat alle nodige info aanwezig is om de bron terug te vinden (zoals uitvoerig besproken in de lessen Research Methods).
-
-% Voor literatuurverwijzingen zijn er twee belangrijke commando's:
-% \autocite{KEY} => (Auteur, jaartal) Gebruik dit als de naam van de auteur
-%   geen onderdeel is van de zin.
-% \textcite{KEY} => Auteur (jaartal)  Gebruik dit als de auteursnaam wel een
-%   functie heeft in de zin (bv. ``Uit onderzoek door Doll & Hill (1954) bleek
-%   ...'')
-
-Je mag deze sectie nog verder onderverdelen in subsecties als dit de structuur van de tekst kan verduidelijken.
+\subsection{Kennislacunes}
+Bestaande literatuur biedt echter beperkte kwantitatieve vergelijkingen tussen AI-agents en menselijke testers in realistische industriële contexten. Dit onderzoek adresseert deze kennislacune door beide benaderingen systematisch te evalueren op testsnelheid, bugdetectie-effectiviteit en testdekking, met specifieke focus op praktische toepasbaarheid voor mid-size studios en indie-ontwikkelaars.
 
 %---------- Methodologie ------------------------------------------------------
 \section{Methodologie}%
